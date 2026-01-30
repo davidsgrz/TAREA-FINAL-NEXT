@@ -1,0 +1,21 @@
+@reference "tailwindcss";
+
+.footer {
+    @apply p-8 text-center bg-[#232323] text-white mt-10 border-t-8 border-[#ff1f1f];
+}
+
+.container {
+    @apply max-w-2xl mx-auto;
+}
+
+.copyright {
+    @apply mb-2 text-xs text-gray-400;
+}
+
+.credit {
+    @apply font-bold text-yellow-400 text-sm tracking-widest uppercase mb-4;
+}
+
+.version {
+    @apply text-[10px] text-gray-500 opacity-60;
+}

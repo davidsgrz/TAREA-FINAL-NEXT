@@ -1,0 +1,17 @@
+@reference "tailwindcss";
+
+.container {
+    @apply flex flex-col items-center justify-center h-screen;
+}
+
+.title {
+    @apply text-6xl font-bold;
+}
+
+.message {
+    @apply text-xl;
+}
+
+.link {
+    @apply mt-4 text-blue-500 underline;
+}

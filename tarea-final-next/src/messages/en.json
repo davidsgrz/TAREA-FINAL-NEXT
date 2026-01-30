@@ -1,0 +1,20 @@
+{
+  "welcome": "Welcome to PokeApp!",
+  "home": "Home",
+  "contact": "Contact",
+  "generations": "Generations",
+  "gen1": "First Gen",
+  "gen2": "Second Gen",
+  "gen3": "Third Gen",
+  "footer": "All rights reserved 2026",
+  "loading": "Loading...",
+  "error": "An error occurred",
+  "contact_text": "This website was generated in NEXT by student David Segura from IES Cura Valera.",
+  "details": "View details",
+  "stats": {
+    "hp": "HP",
+    "attack": "Attack",
+    "defense": "Defense"
+  },
+  "creator_credit": "Created by David Segura"
+}

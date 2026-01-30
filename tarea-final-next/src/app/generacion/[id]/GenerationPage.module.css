@@ -1,0 +1,106 @@
+@reference "tailwindcss";
+
+.container {
+    @apply p-8 max-w-7xl mx-auto;
+}
+
+.title {
+    @apply text-4xl font-extrabold mb-10 text-center text-blue-600 uppercase tracking-wider;
+}
+
+.grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6;
+}
+
+.cardWrapper {
+    @apply cursor-pointer transform hover:scale-105 transition-transform;
+}
+
+.loadingContainer {
+    @apply flex justify-center items-center h-64;
+}
+
+.loadingText {
+    @apply text-xl font-bold animate-pulse;
+}
+
+/* estilos mOdales*/
+.modalOverlay {
+    @apply fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4;
+}
+
+.modalContent {
+    @apply bg-white rounded-2xl p-8 max-w-sm w-full relative shadow-2xl;
+    animation: popIn 0.3s ease-out;
+}
+
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.closeButton {
+    @apply absolute top-4 right-4 text-gray-400 hover:text-black text-3xl leading-none;
+}
+
+.modalHeader {
+    @apply text-center;
+}
+
+.pokemonImage {
+    @apply w-48 h-48 mx-auto drop-shadow-lg;
+    image-rendering: pixelated;
+}
+
+.pokemonId {
+    @apply text-gray-400 font-mono mt-2;
+}
+
+.pokemonName {
+    @apply text-3xl font-bold capitalize text-gray-800;
+}
+
+/* Stats Section */
+.statsContainer {
+    @apply mt-6 space-y-4 border-t pt-4;
+}
+
+.statRow {
+    @apply flex items-center gap-3;
+}
+
+.statLabel {
+    @apply text-gray-600 font-medium w-20 text-xs uppercase tracking-wider;
+}
+
+.statBarContainer {
+    @apply flex-1 h-3 bg-gray-200 rounded-full overflow-hidden;
+}
+
+.statBar {
+    @apply h-full rounded-full transition-all duration-1000 ease-out;
+}
+
+.statValue {
+    @apply font-bold text-xs text-gray-500 w-8 text-right;
+}
+
+/* Stat Specific Colors */
+.hpBar {
+    @apply bg-green-500;
+}
+
+.atkBar {
+    @apply bg-red-500;
+}
+
+.defBar {
+    @apply bg-blue-500;
+}
