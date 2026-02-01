@@ -9,20 +9,7 @@ export default function Navbar() {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        {/* lucs de la pokdx */}
-        <div className={styles.lightsContainer}>
-            <div className={styles.lightRed}></div>
-            <div className={styles.lightYellow}></div>
-            <div className={styles.lightGreen}></div>
-        </div>
-
         <Link href="/" className={`${styles.logoLink} group`}>
-          {/*  "Camara" */}
-          <div className={styles.cameraLens}>
-             <div className={styles.lensInner}>
-               <div className={styles.lensReflect}></div>
-             </div>
-          </div>
           <div className={styles.logoTextContainer}>
             <span className={styles.logoTitle}>POKEDEX</span>
             <span className={styles.logoSubtitle}>David Segura Edition</span>
