@@ -26,7 +26,7 @@ export default function HomePage() {
       </h1>
       
       <div className="max-w-sm w-full">
-        {/* showButton={false} asi no sale el botón en el inicio */}
+        {/* showButton={false} asi no  botón en el inicio */}
         {pokemon && (
           <PokemonCard 
             pokemon={pokemon} 

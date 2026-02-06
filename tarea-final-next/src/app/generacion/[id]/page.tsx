@@ -10,7 +10,7 @@ const routeMap: Record<string, string> = {
   'segunda': '2',
   'tercera': '3',
   'cuarta': '4',
-  // Keep numeric support just in case
+  
   '1': '1',
   '2': '2',
   '3': '3',
@@ -158,7 +158,7 @@ export default function GenerationPage({ params }: { params: Promise<{ id: strin
                 <span className={styles.statValue}>{selectedPokemon.stats[0].base_stat}</span>
               </div>
 
-              {/* Attack */}
+              {/* Attk */}
               <div className={styles.statRow}>
                 <span className={styles.statLabel}>{t.stats.attack}</span>
                 <div className={styles.statBarContainer}>
@@ -170,7 +170,7 @@ export default function GenerationPage({ params }: { params: Promise<{ id: strin
                 <span className={styles.statValue}>{selectedPokemon.stats[1].base_stat}</span>
               </div>
 
-              {/* Defense */}
+              {/* Defens */}
               <div className={styles.statRow}>
                 <span className={styles.statLabel}>{t.stats.defense}</span>
                 <div className={styles.statBarContainer}>

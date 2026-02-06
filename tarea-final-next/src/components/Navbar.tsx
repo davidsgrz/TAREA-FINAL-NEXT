@@ -36,7 +36,7 @@ export default function Navbar() {
                          {t.gen2}
                     </Link>
                     
-                    {/* Submenú anidado - Estructura CSS pura o JS simple */}
+                    {/* Submenú -  */}
                     <div className={`${styles.dropdownItem} ${styles.nestedParent} group/nested`}>
                         <div className="flex justify-between items-center w-full">
                             {t.others}
