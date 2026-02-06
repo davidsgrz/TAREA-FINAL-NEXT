@@ -51,7 +51,7 @@
 }
 
 .dropdownContent {
-    @apply bg-slate-800 border-2 border-slate-600 rounded-lg shadow-xl overflow-hidden;
+    @apply bg-slate-800 border-2 border-slate-600 rounded-lg shadow-xl;
 }
 
 .dropdownItem {
@@ -69,4 +69,20 @@
 .langButtonActive {
     @apply bg-yellow-400 text-black border-yellow-600;
     box-shadow: 0 0 10px rgba(250, 204, 21, 0.6);
+}
+
+.nestedParent {
+    @apply relative cursor-pointer;
+}
+
+.nestedMenu {
+    @apply absolute hidden left-full top-0 w-48 bg-slate-800 border-2 border-slate-600 rounded-lg shadow-xl -ml-2;
+}
+
+.nestedParent:hover .nestedMenu {
+    @apply block;
+}
+
+.nestedItem {
+    @apply block px-4 py-3 text-white hover:bg-slate-700 hover:text-yellow-400 transition-colors text-xs font-bold uppercase border-b border-slate-700 last:border-0;
 }

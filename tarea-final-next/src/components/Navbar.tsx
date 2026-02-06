@@ -29,11 +29,29 @@ export default function Navbar() {
                 </button>
                 <div className={styles.dropdownMenu}>
                   <div className={styles.dropdownContent}>
-                    {[1, 2, 3].map((num) => (
-                      <Link key={num} href={`/generacion/${num}`} className={styles.dropdownItem}>
-                        {t[`gen${num}`]}
-                      </Link>
-                    ))}
+                    <Link href="/generacion/primera" className={styles.dropdownItem}>
+                         {t.gen1}
+                    </Link>
+                    <Link href="/generacion/segunda" className={styles.dropdownItem}>
+                         {t.gen2}
+                    </Link>
+                    
+                    {/* Submenú anidado - Estructura CSS pura o JS simple */}
+                    <div className={`${styles.dropdownItem} ${styles.nestedParent} group/nested`}>
+                        <div className="flex justify-between items-center w-full">
+                            {t.others}
+                            <span className="text-[10px]">▶</span>
+                        </div>
+                        
+                        <div className={styles.nestedMenu}>
+                            <Link href="/generacion/tercera" className={styles.nestedItem}>
+                                {t.third_season}
+                            </Link>
+                            <Link href="/generacion/cuarta" className={styles.nestedItem}>
+                                {t.fourth_season}
+                            </Link>
+                        </div>
+                    </div>
                   </div>
                 </div>
             </div>

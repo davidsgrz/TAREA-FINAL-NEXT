@@ -16,5 +16,10 @@
     "attack": "Attaque",
     "defense": "Défense"
   },
-  "creator_credit": "Créé par David Segura"
+  "creator_credit": "Créé par David Segura",
+  "others": "Autres",
+  "third_season": "Troisième saison",
+  "fourth_season": "Quatrième saison",
+  "next_pokemon": "Suivant",
+  "prev_pokemon": "Précédent"
 }

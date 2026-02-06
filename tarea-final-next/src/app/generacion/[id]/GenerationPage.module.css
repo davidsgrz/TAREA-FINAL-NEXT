@@ -104,3 +104,19 @@
 .defBar {
     @apply bg-blue-500;
 }
+
+.navButton {
+    @apply px-3 py-1 bg-slate-700 text-white rounded text-xs font-bold uppercase transition-colors border border-slate-600 cursor-pointer;
+}
+
+.navButton:hover {
+    @apply bg-yellow-400 text-black border-yellow-500;
+}
+
+.prevButton {
+    @apply absolute -left-4 top-1/2 -translate-y-1/2 z-10 shadow-md;
+}
+
+.nextButton {
+    @apply absolute -right-4 top-1/2 -translate-y-1/2 z-10 shadow-md;
+}

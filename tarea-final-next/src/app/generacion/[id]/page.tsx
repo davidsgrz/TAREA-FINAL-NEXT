@@ -1,19 +1,40 @@
 "use client";
 import { useEffect, useState, use } from 'react';
+import { notFound } from 'next/navigation';
 import PokemonCard from '@/components/PokemonCard';
 import { useLanguage } from '@/context/LanguageContext';
 import styles from './GenerationPage.module.css';
 
+const routeMap: Record<string, string> = {
+  'primera': '1',
+  'segunda': '2',
+  'tercera': '3',
+  'cuarta': '4',
+  // Keep numeric support just in case
+  '1': '1',
+  '2': '2',
+  '3': '3',
+  '4': '4'
+};
+
 const genRanges: any = {
   '1': { min: 1, max: 151 },
   '2': { min: 152, max: 251 },
-  '3': { min: 252, max: 386 }
+  '4': { min: 387, max: 493 }
 };
 
 export default function GenerationPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
   const { t } = useLanguage();
   
+  const numericId = routeMap[id];
+  const range = genRanges[numericId];
+
+  // Validar rango inmediatamente
+  if (!range) {
+    notFound();
+  }
+
   const [pokemons, setPokemons] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedPokemon, setSelectedPokemon] = useState<any>(null);
@@ -21,7 +42,6 @@ export default function GenerationPage({ params }: { params: Promise<{ id: strin
   useEffect(() => {
     const fetchGen = async () => {
       setLoading(true);
-      const range = genRanges[id];
       if (!range) return;
 
       // 1. Garantizamos 10 IDs únicos usando un Set
@@ -46,7 +66,7 @@ export default function GenerationPage({ params }: { params: Promise<{ id: strin
     };
 
     fetchGen();
-  }, [id]);
+  }, [numericId]); // Depend on numericId
 
   if (loading) return (
     <div className={styles.loadingContainer}>
@@ -57,7 +77,7 @@ export default function GenerationPage({ params }: { params: Promise<{ id: strin
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>
-        {t[`gen${id}`]}
+        {t[`gen${numericId}`]}
       </h2>
 
       {/* Grid para los pokemn */}
@@ -85,11 +105,42 @@ export default function GenerationPage({ params }: { params: Promise<{ id: strin
             </button>
             
             <div className={styles.modalHeader}>
+              <button 
+                className={`${styles.navButton} ${styles.prevButton}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  const newId = Math.max(1, selectedPokemon.id - 1);
+                  if (newId !== selectedPokemon.id) {
+                     fetch(`https://pokeapi.co/api/v2/pokemon/${newId}`)
+                       .then(res => res.json())
+                       .then(data => setSelectedPokemon(data));
+                  }
+                }}
+              >
+                &lt; {t.prev_pokemon}
+              </button>
+
               <img 
                 src={selectedPokemon.sprites.other['official-artwork'].front_default || selectedPokemon.sprites.front_default} 
                 className={styles.pokemonImage} 
                 alt={selectedPokemon.name} 
               />
+
+              <button 
+                className={`${styles.navButton} ${styles.nextButton}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  const newId = Math.min(1000, selectedPokemon.id + 1);
+                  if (newId !== selectedPokemon.id) {
+                     fetch(`https://pokeapi.co/api/v2/pokemon/${newId}`)
+                       .then(res => res.json())
+                       .then(data => setSelectedPokemon(data));
+                  }
+                }}
+              >
+                {t.next_pokemon} &gt;
+              </button>
+
               <p className={styles.pokemonId}>Nº {selectedPokemon.id}</p>
               <h2 className={styles.pokemonName}>{selectedPokemon.name}</h2>
             </div>
